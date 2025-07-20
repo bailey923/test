@@ -4,10 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Be Right Back</title>
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet" />
   <style>
-    /* Animate gradient background */
+    /* Gradient animation */
     @keyframes gradientBG {
       0% {
         background-position: 0% 50%;
@@ -20,7 +19,7 @@
       }
     }
 
-    /* Pulsating loading dots animation */
+    /* Pulsating dots animation */
     @keyframes pulseDot {
       0%, 100% {
         opacity: 0.3;
@@ -43,7 +42,6 @@
       background-size: 400% 400%;
       animation: gradientBG 15s ease infinite;
       color: white;
-      overflow: hidden;
       user-select: none;
     }
 
@@ -68,26 +66,25 @@
     .dots {
       font-size: 3rem;
       letter-spacing: 0.3em;
-      color: white;
       margin-top: 0.5rem;
       user-select: none;
     }
 
     .dot {
       display: inline-block;
-      animation-name: pulseDot;
-      animation-duration: 1.5s;
-      animation-iteration-count: infinite;
-      animation-timing-function: ease-in-out;
+      animation: pulseDot 1.5s ease-in-out infinite;
       opacity: 0.3;
       transform-origin: center;
     }
+
     .dot:nth-child(1) {
       animation-delay: 0s;
     }
+
     .dot:nth-child(2) {
       animation-delay: 0.3s;
     }
+
     .dot:nth-child(3) {
       animation-delay: 0.6s;
     }
@@ -104,4 +101,5 @@
   </div>
 </body>
 </html>
+
 
