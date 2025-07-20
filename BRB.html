@@ -1,26 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Be Right Back</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet" />
   <style>
-    /* Modern gradient background */
+    /* Animate gradient background */
+    @keyframes gradientBG {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* Pulsating loading dots animation */
+    @keyframes pulseDot {
+      0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.3);
+      }
+    }
+
     body {
       margin: 0;
       height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #667eea, #764ba2);
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(-45deg, #667eea, #764ba2, #6b8dd6, #8a4db2);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
       color: white;
-      font-size: 3rem;
+      overflow: hidden;
       user-select: none;
+    }
+
+    .container {
+      text-align: center;
+      animation: fadeIn 2s ease forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    h1 {
+      font-size: 4rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .dots {
+      font-size: 3rem;
+      letter-spacing: 0.3em;
+      color: white;
+      margin-top: 0.5rem;
+      user-select: none;
+    }
+
+    .dot {
+      display: inline-block;
+      animation-name: pulseDot;
+      animation-duration: 1.5s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+      opacity: 0.3;
+      transform-origin: center;
+    }
+    .dot:nth-child(1) {
+      animation-delay: 0s;
+    }
+    .dot:nth-child(2) {
+      animation-delay: 0.3s;
+    }
+    .dot:nth-child(3) {
+      animation-delay: 0.6s;
     }
   </style>
 </head>
 <body>
-  Be Right Back
+  <div class="container" role="main" aria-live="polite" aria-label="Be right back message">
+    <h1>Be Right Back</h1>
+    <div class="dots" aria-hidden="true">
+      <span class="dot">.</span>
+      <span class="dot">.</span>
+      <span class="dot">.</span>
+    </div>
+  </div>
 </body>
 </html>
+
